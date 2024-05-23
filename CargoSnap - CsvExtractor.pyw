@@ -12,7 +12,7 @@ api_key = '3dd4ca76d157882dc46b75eaa7cbe6f9'
 api_secret = '254bb13963f12cbcbaf62e1539555bf3'
 mailjet = Client(auth=(api_key, api_secret), version='v3.1')
 EMAIL_FROM = "christ.wonga@georgeshelfer.com"
-EMAIL_TO = ["wongaharvey@gmail.com", "christ.wonga@georgeshelfer.com"]
+EMAIL_TO = ["jean-francois.portigliatti@georgeshelfer.com", "christ.wonga@georgeshelfer.com"]
 
 def send_email(message, EMAIL_SUBJECT):
     data = {
@@ -68,8 +68,7 @@ def get_token_from_enc_file():
 def get_run_file_path():
     return os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ressources/run_date.enc')
 
-# Clé de chiffrement générée une seule fois
-KEY = b'inWiR-h6TmWAHzGrzqHEFco9d2LaYOqwJ-6nA3bog-k='  # Remplacez ceci par la clé générée
+KEY = b'inWiR-h6TmWAHzGrzqHEFco9d2LaYOqwJ-6nA3bog-k='
 
 cipher_suite = Fernet(KEY)
 

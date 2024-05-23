@@ -21,7 +21,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='CargoSnap - CsvExtractor',
+    name='CargoSnap',  # Nom de l'application
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -37,5 +37,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='CargoSnap - CsvExtractor',
+    name='CargoSnap',
 )
