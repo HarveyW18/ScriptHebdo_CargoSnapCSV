@@ -20,12 +20,12 @@ def send_email(message, EMAIL_SUBJECT):
             {
                 "From": {
                     "Email": EMAIL_FROM,
-                    "Name": "Harvey"
+                    "Name": "CargoSnap - HebdoCSV"
                 },
                 "To": [
                     {
                         "Email": email,
-                        "Name": "Harvey"
+                        "Name": "CargoSnap - HebdoCSV"
                     } for email in EMAIL_TO  # Crée un objet pour chaque adresse email dans la liste
                 ],
                 "Subject": EMAIL_SUBJECT,
@@ -66,13 +66,13 @@ def get_token_from_enc_file():
         raise FileNotFoundError(f"Le fichier {key_file} ou {enc_file} est introuvable.")
     
 def get_run_file_path():
-    return os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ressources/run_date.enc')
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ressources/run.enc')
 
 KEY = b'inWiR-h6TmWAHzGrzqHEFco9d2LaYOqwJ-6nA3bog-k='
 
 cipher_suite = Fernet(KEY)
 
-def get_run_date():
+def get_run():
     run_file = get_run_file_path()
     if not os.path.exists(run_file):
         return None
@@ -84,27 +84,24 @@ def get_run_date():
         except Exception as e:
             return "Erreur lors de la lecture de la date de la première exécution." + str(e)
 
-def set_first_run_date(date):
+def set_run(date):
     date_str = date.strftime('%Y-%m-%d')
     encrypted_date = cipher_suite.encrypt(date_str.encode('utf-8'))
     first_run_file = get_run_file_path()
     with open(first_run_file, 'wb') as file:
         file.write(encrypted_date)
 
-def within_months(first_run_date):
+def within(first_run):
     current_date = datetime.now()
-    end_date = first_run_date + timedelta(days=90)
+    end_date = first_run + timedelta(days=90)
     return current_date <= end_date
 
 def main():
-    # Vérifiez si c'est la première exécution
-    first_run_date = get_run_date()
-    if first_run_date is None:
-        # C'est la première exécution, enregistrez la date
-        first_run_date = datetime.now()
-        set_first_run_date(first_run_date)
-
-    if within_months(first_run_date):
+    first_run = get_run()
+    if first_run is None:
+        first_run = datetime.now()
+        set_run(first_run)
+    if within(first_run):
         fetch_and_export_data()
     else:
         print("Veuillez contacter le développeur.")
@@ -137,7 +134,7 @@ def fetch_and_export_data():
             data2 = response2.json()
 
             if data and "data" in data and data2 and "data" in data2:
-                file_path = os.path.join(f"Cargo_S{previous_iso_week}.csv")
+                file_path = os.path.join(r"C:\Users\c.wonga\Downloads\Windows Kits\Cargo_S"f"{previous_iso_week}.csv")
                 with open(file_path, 'w', newline='', encoding='utf-8') as csvfile:
                     fieldnames = ["BR", "Quality mark", "Potential of storage", "Sum Up", "Sorting", "Relabelling", "Repalettizing", "Resizing", "Rejection"]
                     writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=';')
