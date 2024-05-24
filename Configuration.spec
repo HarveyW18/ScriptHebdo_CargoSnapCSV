@@ -3,7 +3,7 @@
 block_cipher = None
 
 a = Analysis(
-    ['TokenChanger.pyw'],
+    ['Configuration.pyw'],
     pathex=['.'],
     binaries=[],
     datas=[('ressources/*', 'ressources')],
@@ -21,7 +21,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='CargoSnap - TokenChanger',  # Nom de l'application
+    name='CargoSnap - Configuration',  # Nom de l'application
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -37,5 +37,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='TokenChanger',
+    name='Configuration',
 )
