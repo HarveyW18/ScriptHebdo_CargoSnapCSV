@@ -103,12 +103,9 @@ app.geometry("450x740")
 app.title("Mise à jour des configurations")
 app.iconbitmap(resource_path("ressources/icon.ico"))
 
-espace = ctk.CTkLabel(app, text="", font=("Segoe UI", 20, "bold"))
-espace.pack(pady=10)
-
 # Label de titre
 title_label = ctk.CTkLabel(app, text="Mise à jour des configurations", font=("Segoe UI", 20, "bold"))
-title_label.pack(pady=10)
+title_label.pack(pady=25)
 
 # Labels et champs de saisie
 label_token = ctk.CTkLabel(app, text="Entrez le nouveau token :", corner_radius=8, font=("Segoe UI", 14))
@@ -155,9 +152,9 @@ entry_path.insert(0, PATH)
 entry_path.pack(pady=5)
 
 update_button = ctk.CTkButton(app, text="Mettre à jour les configurations", fg_color='#476A4A', command=on_update_button_click, font=("Segoe UI", 12, "bold"))
-update_button.pack(pady=10)
+update_button.pack(pady=25)
 
 result_label = ctk.CTkLabel(app, text="", font=("Arial", 12))
-result_label.pack(pady=10)
+result_label.pack()
 
 app.mainloop()
