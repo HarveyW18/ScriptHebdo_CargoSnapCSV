@@ -21,7 +21,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='TokenChanger',  # Nom de l'application
+    name='CargoSnap - TokenChanger',  # Nom de l'application
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

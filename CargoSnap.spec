@@ -21,7 +21,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='CargoSnap',  # Nom de l'application
+    name='CargoSnap - QcHebdoCSV',  # Nom de l'application
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
