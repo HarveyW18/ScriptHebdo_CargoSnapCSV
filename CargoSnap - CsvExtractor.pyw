@@ -159,7 +159,7 @@ def fetch_and_export_data():
 
             if data and "data" in data and data2 and "data" in data2:
                 file_path = os.path.join(get_path_from_enc_file() +"Cargo_S"f"{previous_iso_week}.csv")
-                with open(file_path, 'w', newline='', encoding='utf-8') as csvfile:
+                with open(file_path, 'w', newline='', encoding='utf-8-sig') as csvfile:
                     fieldnames = ["BR", "Quality mark", "Potential of storage", "Sum Up", "Sorting", "Relabelling", "Repalettizing", "Resizing", "Rejection"]
                     writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=';')
                     writer.writeheader()
