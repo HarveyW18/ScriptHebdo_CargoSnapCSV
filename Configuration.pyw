@@ -86,12 +86,12 @@ configurations = read_configurations()
 if configurations:
     SMTP_PASSWORD, EMAIL_FROM, EMAIL_TO, SMTP_SERVER, SMTP_PORT, TOKEN, PATH = configurations
 else:
-    EMAIL_FROM = "mail.info@georgeshelfer.com"
-    EMAIL_TO = "christ.wonga@georgeshelfer.com"
+    EMAIL_FROM = "mail.info@nomdedomaine.com"
+    EMAIL_TO = "service@nomdedomaine.com"
     SMTP_SERVER = "smtp.office365.com"
     SMTP_PORT = 587
-    SMTP_PASSWORD = "Ghelfer2021@"
-    TOKEN = "Um9kZW9IVklzY1lxWFc2WkNMMk1lZ3dLVkw4WkVXTlNfNjgx"
+    SMTP_PASSWORD = ""
+    TOKEN = "ENTREZ VOTRE TOKEN"
     PATH = r"K:\\"
 
 # Configuration de la fenêtre principale
