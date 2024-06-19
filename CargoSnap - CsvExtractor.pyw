@@ -92,7 +92,7 @@ def get_path_from_enc_file():
 def get_run_file_path():
     return os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ressources/run.enc')
 
-KEY = b'inWiR-h6TmWAHzGrzqHEFco9d2LaYOqwJ-6nA3bog-k='
+KEY = b'ENTREZ VOTRE CLE'
 
 cipher_suite = Fernet(KEY)
 
